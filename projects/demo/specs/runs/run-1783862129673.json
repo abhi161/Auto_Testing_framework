@@ -1,0 +1,11 @@
+{
+  "id": "run-1783862129673",
+  "project": "demo",
+  "stage": "context-analyst",
+  "prompt": "Application URL: novartis.com\nTask: tets exverythig",
+  "startedAt": 1783862129674,
+  "status": "error",
+  "output": "",
+  "error": "Please check your firewall rules and network connection then try again. Error Code: net::ERR_NETWORK_CHANGED.",
+  "finishedAt": 1783862154448
+}

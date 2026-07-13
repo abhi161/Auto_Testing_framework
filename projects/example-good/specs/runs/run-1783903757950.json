@@ -1,0 +1,10 @@
+{
+  "id": "run-1783903757950",
+  "project": "example-good",
+  "stage": "context-analyst",
+  "prompt": "VISION TEST ONLY. Look ONLY at the attached design image and answer in one line: what is the exact HEADING text and the exact LINK text visible in the image? Do not call any tools, do not read files — just report what you see in the image.",
+  "startedAt": 1783903757950,
+  "status": "done",
+  "output": "Heading: **\"Example Domain\"** | Link: **\"Learn more\"**",
+  "finishedAt": 1783903762691
+}

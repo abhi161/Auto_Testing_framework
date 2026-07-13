@@ -1,0 +1,27 @@
+import { test, expect, Page } from '@playwright/test';
+import { AuthHelper } from '../helpers/auth.helper';
+
+// Design-parity spec generated from specs/design-spec.md.
+// Do NOT adjust expected values to force a pass on a genuine deviation — see
+// copilot-instructions.md §8 and the figma-design-validation skill.
+
+test.describe('design-parity: <ScreenName>', () => {
+  let sharedPage: Page;
+
+  test.beforeAll(async ({ browser }) => {
+    const context = await browser.newContext();
+    sharedPage = await context.newPage();
+    await new AuthHelper(sharedPage).login();
+  });
+
+  test('TC-<###>: <ScreenName> matches design spec', async () => {
+    await sharedPage.goto('/<route>');
+    await sharedPage.waitForLoadState('networkidle');
+
+    // Token assertions (fill in from specs/design-spec.md)
+    // await expect(sharedPage.getByTestId('heading')).toHaveText('<exact copy from Figma>');
+    // await expect(sharedPage.getByTestId('cta')).toHaveCSS('background-color', 'rgb(r, g, b)');
+
+    await expect(sharedPage).toHaveScreenshot('<screen>.png', { fullPage: true });
+  });
+});

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline';" />
+<title>Playwright Agent Pipeline</title>
+<style>
+  body { font-family: var(--vscode-font-family); color: var(--vscode-foreground); background: var(--vscode-editor-background); padding: 12px; }
+  select, textarea, button { font-family: inherit; font-size: 13px; }
+  textarea { width: 100%; box-sizing: border-box; min-height: 70px; background: var(--vscode-input-background); color: var(--vscode-input-foreground); border: 1px solid var(--vscode-input-border); padding: 6px; }
+  select { padding: 4px; margin-right: 8px; }
+  button { padding: 6px 14px; margin-right: 8px; cursor: pointer; }
+  #log { white-space: pre-wrap; font-family: var(--vscode-editor-font-family, monospace); font-size: 12px; background: var(--vscode-editor-background); border: 1px solid var(--vscode-panel-border); padding: 8px; height: 60vh; overflow-y: auto; margin-top: 12px; }
+  .row { margin-bottom: 8px; }
+  .status { font-weight: 600; margin-left: 8px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <label>Stage:
+      <select id="stage">
+        <option value="full-pipeline">Full pipeline (Context Analyst → Planner → Generator → Executor)</option>
+        <option value="context-analyst">Context Analyst only</option>
+        <option value="test-planner">Test Planner only</option>
+        <option value="test-generator">Test Generator only</option>
+        <option value="test-executor-analyst">Test Executor & Analyser only</option>
+      </select>
+    </label>
+  </div>
+  <div class="row">
+    <textarea id="prompt" placeholder="e.g. Test the demo project at https://the-internet.herokuapp.com/login using projects/demo"></textarea>
+  </div>
+  <div class="row">
+    <button id="run">Run</button>
+    <button id="cancel">Cancel</button>
+    <span class="status" id="status"></span>
+  </div>
+  <div id="log"></div>
+
+<script>
+  const vscode = acquireVsCodeApi();
+  const logEl = document.getElementById('log');
+  const statusEl = document.getElementById('status');
+
+  document.getElementById('run').addEventListener('click', () => {
+    logEl.textContent = '';
+    statusEl.textContent = 'Running...';
+    vscode.postMessage({
+      type: 'run',
+      stage: document.getElementById('stage').value,
+      prompt: document.getElementById('prompt').value,
+    });
+  });
+
+  document.getElementById('cancel').addEventListener('click', () => {
+    vscode.postMessage({ type: 'cancel' });
+    statusEl.textContent = 'Cancelling...';
+  });
+
+  window.addEventListener('message', (event) => {
+    const msg = event.data;
+    if (msg.type === 'log') {
+      logEl.textContent += msg.line;
+      logEl.scrollTop = logEl.scrollHeight;
+    } else if (msg.type === 'done') {
+      statusEl.textContent = 'Done.';
+    } else if (msg.type === 'error') {
+      statusEl.textContent = 'Error.';
+      logEl.textContent += '\n[ERROR] ' + msg.message + '\n';
+    }
+  });
+</script>
+</body>
+</html>

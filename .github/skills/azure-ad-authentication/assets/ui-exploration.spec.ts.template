@@ -1,0 +1,33 @@
+import { test, Page } from '@playwright/test';
+import { AuthHelper } from '../helpers/auth.helper';
+import fs from 'fs';
+import path from 'path';
+
+// Exploration fallback used by the Test Planner when MCP playwright-test/* browser tools
+// are unavailable. Logs in once, walks top-level routes, screenshots each into specs/screenshots/.
+
+const ROUTES: string[] = [
+  '/', // TODO: fill in from source-code-analysis routes table
+];
+
+test.describe('ui-exploration', () => {
+  let sharedPage: Page;
+
+  test.beforeAll(async ({ browser }) => {
+    const context = await browser.newContext();
+    sharedPage = await context.newPage();
+    await new AuthHelper(sharedPage).login();
+  });
+
+  for (const route of ROUTES) {
+    test(`explore ${route}`, async () => {
+      await sharedPage.goto(route);
+      await sharedPage.waitForLoadState('networkidle');
+
+      const dir = path.join(__dirname, '..', '..', 'specs', 'screenshots');
+      fs.mkdirSync(dir, { recursive: true });
+      const name = route === '/' ? 'home' : route.replace(/\//g, '_');
+      await sharedPage.screenshot({ path: path.join(dir, `${name}.png`), fullPage: true });
+    });
+  }
+});

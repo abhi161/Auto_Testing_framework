@@ -1,0 +1,3 @@
+Test Case No.,Test Case/Summary,Test Type,Description,Data,Test Steps,Expected outcome
+TC-001,Example: user can log in,Automated,"Verifies the Azure AD login flow reaches an authenticated route","TEST_USER / TEST_PASS from .env","1. Navigate to TEST_URL 2. Complete Microsoft login 3. Wait for redirect","User lands on the authenticated home route"
+TC-002,Example: login button matches design,Design,"Verifies the login CTA matches the Figma spec (color, copy, position)","Figma node <id>","1. Navigate to TEST_URL 2. Locate CTA button 3. Compare against design-spec.md","Button color, text, and position match the design spec exactly"

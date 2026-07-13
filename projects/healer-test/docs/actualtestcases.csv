@@ -1,0 +1,3 @@
+Test Case No.,Test Case/Summary,Test Type,Description,Data,Test Steps,Expected outcome
+TC-001,Homepage heading text,Functional / E2E,Verify the h1 heading,,"1. goto / 2. assert h1 text","h1 text is Example Domain"
+TC-002,Heading is present,Functional / E2E,Verify the page heading is present and correct,,"1. goto / 2. assert heading text","heading text is Example Domain"

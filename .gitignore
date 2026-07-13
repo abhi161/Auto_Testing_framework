@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Build output
+vscode-extension/dist/
+dist/
+
+# Environment / secrets (keep .env.example)
+.env
+**/.env
+!.env.example
+
+# Auth / session state
+**/auth-state*.json
+**/storageState*.json
+
+# Cloned/linked app source (symlink, points outside the repo)
+projects/*/codebase/
+
+# Playwright + test artifacts
+test-results/
+**/test-results/
+playwright-report/
+**/playwright-report/
+blob-report/
+**/*.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log

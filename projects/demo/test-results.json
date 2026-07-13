@@ -1,0 +1,1974 @@
+{
+  "config": {
+    "argv": [
+      "/usr/bin/node",
+      "/home/abhi/projects/Testing_automation/node_modules/.bin/playwright",
+      "test",
+      "projects/demo/tests/auth.spec.ts",
+      "projects/demo/tests/dynamic.spec.ts",
+      "projects/demo/tests/files.spec.ts",
+      "projects/demo/tests/interactions.spec.ts",
+      "projects/demo/tests/navigation.spec.ts",
+      "projects/demo/tests/scroll.spec.ts",
+      "--retries=1"
+    ],
+    "configFile": "/home/abhi/projects/Testing_automation/playwright.config.ts",
+    "rootDir": "/home/abhi/projects/Testing_automation/projects/demo/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/abhi/projects/Testing_automation/projects/demo/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/abhi/projects/Testing_automation/projects/demo/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "/home/abhi/projects/Testing_automation/projects/demo/playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/home/abhi/projects/Testing_automation/projects/demo/test-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "auth.spec.ts",
+      "file": "auth.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Auth — Secure Area",
+          "file": "auth.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-DEMO-008: logout from secure area",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12922,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:54:14.010Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/auth-Auth-—-Secure-Area-TC-DEMO-008-logout-from-secure-area-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d748ac400d08b85935ef-64998dc6b2d6c4977a53",
+              "file": "auth.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-040: secure file download — requires auth",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6441,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login/\u001b[39m\nReceived string:  \u001b[31m\"https://the-internet.herokuapp.com/download_secure\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://the-internet.herokuapp.com/download_secure\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login/\u001b[39m\nReceived string:  \u001b[31m\"https://the-internet.herokuapp.com/download_secure\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://the-internet.herokuapp.com/download_secure\"\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/auth.spec.ts:21:24",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/auth.spec.ts",
+                          "column": 24,
+                          "line": 21
+                        },
+                        "snippet": "  19 |     await page.goto('/download_secure');\n  20 |     // Unauthenticated access should redirect to /login\n> 21 |     await expect(page).toHaveURL(/\\/login/);\n     |                        ^\n  22 |   });\n  23 | });\n  24 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/auth.spec.ts",
+                            "column": 24,
+                            "line": 21
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login/\u001b[39m\nReceived string:  \u001b[31m\"https://the-internet.herokuapp.com/download_secure\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://the-internet.herokuapp.com/download_secure\"\u001b[22m\n\n\n  19 |     await page.goto('/download_secure');\n  20 |     // Unauthenticated access should redirect to /login\n> 21 |     await expect(page).toHaveURL(/\\/login/);\n     |                        ^\n  22 |   });\n  23 | });\n  24 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/auth.spec.ts:21:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:54:27.210Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/auth-Auth-—-Secure-Area-TC-fe29c-le-download-—-requires-auth-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/auth-Auth-—-Secure-Area-TC-fe29c-le-download-—-requires-auth-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/auth-Auth-—-Secure-Area-TC-fe29c-le-download-—-requires-auth-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/auth.spec.ts",
+                        "column": 24,
+                        "line": 21
+                      }
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6511,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login/\u001b[39m\nReceived string:  \u001b[31m\"https://the-internet.herokuapp.com/download_secure\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://the-internet.herokuapp.com/download_secure\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login/\u001b[39m\nReceived string:  \u001b[31m\"https://the-internet.herokuapp.com/download_secure\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://the-internet.herokuapp.com/download_secure\"\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/auth.spec.ts:21:24",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/auth.spec.ts",
+                          "column": 24,
+                          "line": 21
+                        },
+                        "snippet": "  19 |     await page.goto('/download_secure');\n  20 |     // Unauthenticated access should redirect to /login\n> 21 |     await expect(page).toHaveURL(/\\/login/);\n     |                        ^\n  22 |   });\n  23 | });\n  24 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/auth.spec.ts",
+                            "column": 24,
+                            "line": 21
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login/\u001b[39m\nReceived string:  \u001b[31m\"https://the-internet.herokuapp.com/download_secure\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://the-internet.herokuapp.com/download_secure\"\u001b[22m\n\n\n  19 |     await page.goto('/download_secure');\n  20 |     // Unauthenticated access should redirect to /login\n> 21 |     await expect(page).toHaveURL(/\\/login/);\n     |                        ^\n  22 |   });\n  23 | });\n  24 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/auth.spec.ts:21:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-07-13T05:54:35.438Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/auth-Auth-—-Secure-Area-TC-fe29c-le-download-—-requires-auth-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/auth-Auth-—-Secure-Area-TC-fe29c-le-download-—-requires-auth-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/auth-Auth-—-Secure-Area-TC-fe29c-le-download-—-requires-auth-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/auth.spec.ts",
+                        "column": 24,
+                        "line": 21
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d748ac400d08b85935ef-91e1d8570ab2ff681ac2",
+              "file": "auth.spec.ts",
+              "line": 18,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "dynamic.spec.ts",
+      "file": "dynamic.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Dynamic Features",
+          "file": "dynamic.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-DEMO-006: dynamic content loads new content on reload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11890,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:54:44.117Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-bbc18-loads-new-content-on-reload-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "91393c7c0ef4e18ee99e-a87d63ef96854dc54ed4",
+              "file": "dynamic.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-007: disappearing elements — nav links visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10130,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:54:56.244Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-c96c1-lements-—-nav-links-visible-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "91393c7c0ef4e18ee99e-baafe9f160a5c88343ef",
+              "file": "dynamic.spec.ts",
+              "line": 15,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-021: dynamic controls — enable/disable input",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 11089,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#loading')\nExpected: hidden\nError: strict mode violation: locator('#loading') resolved to 2 elements:\n    1) <div id=\"loading\">…</div> aka getByText('Wait for it...').first()\n    2) <div id=\"loading\">…</div> aka getByText('Wait for it...').nth(1)\n\nCall log:\n\u001b[2m  - Expect \"toBeHidden\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#loading')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#loading')\nExpected: hidden\nError: strict mode violation: locator('#loading') resolved to 2 elements:\n    1) <div id=\"loading\">…</div> aka getByText('Wait for it...').first()\n    2) <div id=\"loading\">…</div> aka getByText('Wait for it...').nth(1)\n\nCall log:\n\u001b[2m  - Expect \"toBeHidden\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#loading')\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts:29:44",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts",
+                          "column": 44,
+                          "line": 29
+                        },
+                        "snippet": "  27 |\n  28 |     await page.getByRole('button', { name: 'Disable' }).click();\n> 29 |     await expect(page.locator('#loading')).toBeHidden();\n     |                                            ^\n  30 |     await expect(page.locator('form#input-example input[type=\"text\"]')).toBeDisabled();\n  31 |   });\n  32 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts",
+                            "column": 44,
+                            "line": 29
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#loading')\nExpected: hidden\nError: strict mode violation: locator('#loading') resolved to 2 elements:\n    1) <div id=\"loading\">…</div> aka getByText('Wait for it...').first()\n    2) <div id=\"loading\">…</div> aka getByText('Wait for it...').nth(1)\n\nCall log:\n\u001b[2m  - Expect \"toBeHidden\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#loading')\u001b[22m\n\n\n  27 |\n  28 |     await page.getByRole('button', { name: 'Disable' }).click();\n> 29 |     await expect(page.locator('#loading')).toBeHidden();\n     |                                            ^\n  30 |     await expect(page.locator('form#input-example input[type=\"text\"]')).toBeDisabled();\n  31 |   });\n  32 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts:29:44"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:55:06.409Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-490bc-rols-—-enable-disable-input-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-490bc-rols-—-enable-disable-input-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-490bc-rols-—-enable-disable-input-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts",
+                        "column": 44,
+                        "line": 29
+                      }
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 14320,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#loading')\nExpected: hidden\nError: strict mode violation: locator('#loading') resolved to 2 elements:\n    1) <div id=\"loading\">…</div> aka getByText('Wait for it...').first()\n    2) <div id=\"loading\">…</div> aka getByText('Wait for it...').nth(1)\n\nCall log:\n\u001b[2m  - Expect \"toBeHidden\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#loading')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#loading')\nExpected: hidden\nError: strict mode violation: locator('#loading') resolved to 2 elements:\n    1) <div id=\"loading\">…</div> aka getByText('Wait for it...').first()\n    2) <div id=\"loading\">…</div> aka getByText('Wait for it...').nth(1)\n\nCall log:\n\u001b[2m  - Expect \"toBeHidden\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#loading')\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts:29:44",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts",
+                          "column": 44,
+                          "line": 29
+                        },
+                        "snippet": "  27 |\n  28 |     await page.getByRole('button', { name: 'Disable' }).click();\n> 29 |     await expect(page.locator('#loading')).toBeHidden();\n     |                                            ^\n  30 |     await expect(page.locator('form#input-example input[type=\"text\"]')).toBeDisabled();\n  31 |   });\n  32 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts",
+                            "column": 44,
+                            "line": 29
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#loading')\nExpected: hidden\nError: strict mode violation: locator('#loading') resolved to 2 elements:\n    1) <div id=\"loading\">…</div> aka getByText('Wait for it...').first()\n    2) <div id=\"loading\">…</div> aka getByText('Wait for it...').nth(1)\n\nCall log:\n\u001b[2m  - Expect \"toBeHidden\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#loading')\u001b[22m\n\n\n  27 |\n  28 |     await page.getByRole('button', { name: 'Disable' }).click();\n> 29 |     await expect(page.locator('#loading')).toBeHidden();\n     |                                            ^\n  30 |     await expect(page.locator('form#input-example input[type=\"text\"]')).toBeDisabled();\n  31 |   });\n  32 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts:29:44"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-07-13T05:55:19.427Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-490bc-rols-—-enable-disable-input-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-490bc-rols-—-enable-disable-input-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-490bc-rols-—-enable-disable-input-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts",
+                        "column": 44,
+                        "line": 29
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "91393c7c0ef4e18ee99e-8ecd3baf9f78e3cd7c52",
+              "file": "dynamic.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-022: dynamic controls — add/remove checkbox",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 15948,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#loading')\nExpected: hidden\nError: strict mode violation: locator('#loading') resolved to 2 elements:\n    1) <div id=\"loading\">…</div> aka getByText('Wait for it...').first()\n    2) <div id=\"loading\">…</div> aka getByText('Wait for it...').nth(1)\n\nCall log:\n\u001b[2m  - Expect \"toBeHidden\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#loading')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#loading')\nExpected: hidden\nError: strict mode violation: locator('#loading') resolved to 2 elements:\n    1) <div id=\"loading\">…</div> aka getByText('Wait for it...').first()\n    2) <div id=\"loading\">…</div> aka getByText('Wait for it...').nth(1)\n\nCall log:\n\u001b[2m  - Expect \"toBeHidden\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#loading')\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts:40:44",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts",
+                          "column": 44,
+                          "line": 40
+                        },
+                        "snippet": "  38 |\n  39 |     await page.getByRole('button', { name: 'Add' }).click();\n> 40 |     await expect(page.locator('#loading')).toBeHidden();\n     |                                            ^\n  41 |     await expect(page.locator('form#checkbox-example input[type=\"checkbox\"]')).toHaveCount(1);\n  42 |   });\n  43 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts",
+                            "column": 44,
+                            "line": 40
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#loading')\nExpected: hidden\nError: strict mode violation: locator('#loading') resolved to 2 elements:\n    1) <div id=\"loading\">…</div> aka getByText('Wait for it...').first()\n    2) <div id=\"loading\">…</div> aka getByText('Wait for it...').nth(1)\n\nCall log:\n\u001b[2m  - Expect \"toBeHidden\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#loading')\u001b[22m\n\n\n  38 |\n  39 |     await page.getByRole('button', { name: 'Add' }).click();\n> 40 |     await expect(page.locator('#loading')).toBeHidden();\n     |                                            ^\n  41 |     await expect(page.locator('form#checkbox-example input[type=\"checkbox\"]')).toHaveCount(1);\n  42 |   });\n  43 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts:40:44"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:55:35.721Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-73d9a-trols-—-add-remove-checkbox-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-73d9a-trols-—-add-remove-checkbox-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-73d9a-trols-—-add-remove-checkbox-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts",
+                        "column": 44,
+                        "line": 40
+                      }
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 14847,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#loading')\nExpected: hidden\nError: strict mode violation: locator('#loading') resolved to 2 elements:\n    1) <div id=\"loading\">…</div> aka getByText('Wait for it...').first()\n    2) <div id=\"loading\">…</div> aka getByText('Wait for it...').nth(1)\n\nCall log:\n\u001b[2m  - Expect \"toBeHidden\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#loading')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#loading')\nExpected: hidden\nError: strict mode violation: locator('#loading') resolved to 2 elements:\n    1) <div id=\"loading\">…</div> aka getByText('Wait for it...').first()\n    2) <div id=\"loading\">…</div> aka getByText('Wait for it...').nth(1)\n\nCall log:\n\u001b[2m  - Expect \"toBeHidden\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#loading')\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts:40:44",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts",
+                          "column": 44,
+                          "line": 40
+                        },
+                        "snippet": "  38 |\n  39 |     await page.getByRole('button', { name: 'Add' }).click();\n> 40 |     await expect(page.locator('#loading')).toBeHidden();\n     |                                            ^\n  41 |     await expect(page.locator('form#checkbox-example input[type=\"checkbox\"]')).toHaveCount(1);\n  42 |   });\n  43 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts",
+                            "column": 44,
+                            "line": 40
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeHidden\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('#loading')\nExpected: hidden\nError: strict mode violation: locator('#loading') resolved to 2 elements:\n    1) <div id=\"loading\">…</div> aka getByText('Wait for it...').first()\n    2) <div id=\"loading\">…</div> aka getByText('Wait for it...').nth(1)\n\nCall log:\n\u001b[2m  - Expect \"toBeHidden\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('#loading')\u001b[22m\n\n\n  38 |\n  39 |     await page.getByRole('button', { name: 'Add' }).click();\n> 40 |     await expect(page.locator('#loading')).toBeHidden();\n     |                                            ^\n  41 |     await expect(page.locator('form#checkbox-example input[type=\"checkbox\"]')).toHaveCount(1);\n  42 |   });\n  43 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts:40:44"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-07-13T05:55:53.721Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-73d9a-trols-—-add-remove-checkbox-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-73d9a-trols-—-add-remove-checkbox-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-73d9a-trols-—-add-remove-checkbox-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/dynamic.spec.ts",
+                        "column": 44,
+                        "line": 40
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "91393c7c0ef4e18ee99e-808231e15ec9f2ab4ed5",
+              "file": "dynamic.spec.ts",
+              "line": 33,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-023: dynamic loading 1 — hidden element revealed",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 15889,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:56:10.604Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-69537-1-—-hidden-element-revealed-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "91393c7c0ef4e18ee99e-37ea06b7e96d2317541a",
+              "file": "dynamic.spec.ts",
+              "line": 44,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-024: dynamic loading 2 — element rendered after start",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 16636,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:56:26.712Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/dynamic-Dynamic-Features-T-00609-lement-rendered-after-start-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "91393c7c0ef4e18ee99e-9ccb785bf49fe832a643",
+              "file": "dynamic.spec.ts",
+              "line": 51,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "files.spec.ts",
+      "file": "files.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Files — Download & Upload",
+          "file": "files.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-DEMO-009: file download — link is present and downloadable",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 17185,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href*=\"/download/\"]').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href*=\"/download/\"]').first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href*=\"/download/\"]').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href*=\"/download/\"]').first()\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts:12:33",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts",
+                          "column": 33,
+                          "line": 12
+                        },
+                        "snippet": "  10 |     await page.goto('/download');\n  11 |     const links = page.locator('a[href*=\"/download/\"]');\n> 12 |     await expect(links.first()).toBeVisible();\n     |                                 ^\n  13 |     expect(await links.count()).toBeGreaterThan(0);\n  14 |   });\n  15 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts",
+                            "column": 33,
+                            "line": 12
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href*=\"/download/\"]').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href*=\"/download/\"]').first()\u001b[22m\n\n\n  10 |     await page.goto('/download');\n  11 |     const links = page.locator('a[href*=\"/download/\"]');\n> 12 |     await expect(links.first()).toBeVisible();\n     |                                 ^\n  13 |     expect(await links.count()).toBeGreaterThan(0);\n  14 |   });\n  15 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts:12:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:56:43.425Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/files-Files-—-Download-Upl-f9b7a-is-present-and-downloadable-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/files-Files-—-Download-Upl-f9b7a-is-present-and-downloadable-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/files-Files-—-Download-Upl-f9b7a-is-present-and-downloadable-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts",
+                        "column": 33,
+                        "line": 12
+                      }
+                    },
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 15772,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href*=\"/download/\"]').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href*=\"/download/\"]').first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href*=\"/download/\"]').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href*=\"/download/\"]').first()\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts:12:33",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts",
+                          "column": 33,
+                          "line": 12
+                        },
+                        "snippet": "  10 |     await page.goto('/download');\n  11 |     const links = page.locator('a[href*=\"/download/\"]');\n> 12 |     await expect(links.first()).toBeVisible();\n     |                                 ^\n  13 |     expect(await links.count()).toBeGreaterThan(0);\n  14 |   });\n  15 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts",
+                            "column": 33,
+                            "line": 12
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('a[href*=\"/download/\"]').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('a[href*=\"/download/\"]').first()\u001b[22m\n\n\n  10 |     await page.goto('/download');\n  11 |     const links = page.locator('a[href*=\"/download/\"]');\n> 12 |     await expect(links.first()).toBeVisible();\n     |                                 ^\n  13 |     expect(await links.count()).toBeGreaterThan(0);\n  14 |   });\n  15 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts:12:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-07-13T05:57:02.245Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/files-Files-—-Download-Upl-f9b7a-is-present-and-downloadable-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/files-Files-—-Download-Upl-f9b7a-is-present-and-downloadable-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/files-Files-—-Download-Upl-f9b7a-is-present-and-downloadable-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts",
+                        "column": 33,
+                        "line": 12
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1de639fdc719e2321283-8f5b1483f8254c0c93a6",
+              "file": "files.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-010: file upload — upload a file successfully",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 13019,
+                      "error": {
+                        "message": "Error: locator.setInputFiles: Error: strict mode violation: locator('input[type=\"file\"]') resolved to 2 elements:\n    1) <input type=\"file\" name=\"file\" id=\"file-upload\"/> aka getByRole('button', { name: 'Choose File' })\n    2) <input type=\"file\" multiple=\"multiple\" class=\"dz-hidden-input\"/> aka locator('input[type=\"file\"]').nth(1)\n\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"file\"]')\u001b[22m\n",
+                        "stack": "Error: locator.setInputFiles: Error: strict mode violation: locator('input[type=\"file\"]') resolved to 2 elements:\n    1) <input type=\"file\" name=\"file\" id=\"file-upload\"/> aka getByRole('button', { name: 'Choose File' })\n    2) <input type=\"file\" multiple=\"multiple\" class=\"dz-hidden-input\"/> aka locator('input[type=\"file\"]').nth(1)\n\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"file\"]')\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts:22:5",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts",
+                          "column": 5,
+                          "line": 22
+                        },
+                        "snippet": "  20 |\n  21 |     await page.goto('/upload');\n> 22 |     await page.locator('input[type=\"file\"]').setInputFiles(tmpFile);\n     |     ^\n  23 |     await page.locator('#file-submit').click();\n  24 |     await expect(page.getByRole('heading', { name: /File Uploaded!/i })).toBeVisible();\n  25 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts",
+                            "column": 5,
+                            "line": 22
+                          },
+                          "message": "Error: locator.setInputFiles: Error: strict mode violation: locator('input[type=\"file\"]') resolved to 2 elements:\n    1) <input type=\"file\" name=\"file\" id=\"file-upload\"/> aka getByRole('button', { name: 'Choose File' })\n    2) <input type=\"file\" multiple=\"multiple\" class=\"dz-hidden-input\"/> aka locator('input[type=\"file\"]').nth(1)\n\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"file\"]')\u001b[22m\n\n\n  20 |\n  21 |     await page.goto('/upload');\n> 22 |     await page.locator('input[type=\"file\"]').setInputFiles(tmpFile);\n     |     ^\n  23 |     await page.locator('#file-submit').click();\n  24 |     await expect(page.getByRole('heading', { name: /File Uploaded!/i })).toBeVisible();\n  25 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts:22:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:57:19.850Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/files-Files-—-Download-Upl-a006e--upload-a-file-successfully-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/files-Files-—-Download-Upl-a006e--upload-a-file-successfully-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/files-Files-—-Download-Upl-a006e--upload-a-file-successfully-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts",
+                        "column": 5,
+                        "line": 22
+                      }
+                    },
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10673,
+                      "error": {
+                        "message": "Error: locator.setInputFiles: Error: strict mode violation: locator('input[type=\"file\"]') resolved to 2 elements:\n    1) <input type=\"file\" name=\"file\" id=\"file-upload\"/> aka getByRole('button', { name: 'Choose File' })\n    2) <input type=\"file\" multiple=\"multiple\" class=\"dz-hidden-input\"/> aka locator('input[type=\"file\"]').nth(1)\n\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"file\"]')\u001b[22m\n",
+                        "stack": "Error: locator.setInputFiles: Error: strict mode violation: locator('input[type=\"file\"]') resolved to 2 elements:\n    1) <input type=\"file\" name=\"file\" id=\"file-upload\"/> aka getByRole('button', { name: 'Choose File' })\n    2) <input type=\"file\" multiple=\"multiple\" class=\"dz-hidden-input\"/> aka locator('input[type=\"file\"]').nth(1)\n\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"file\"]')\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts:22:5",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts",
+                          "column": 5,
+                          "line": 22
+                        },
+                        "snippet": "  20 |\n  21 |     await page.goto('/upload');\n> 22 |     await page.locator('input[type=\"file\"]').setInputFiles(tmpFile);\n     |     ^\n  23 |     await page.locator('#file-submit').click();\n  24 |     await expect(page.getByRole('heading', { name: /File Uploaded!/i })).toBeVisible();\n  25 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts",
+                            "column": 5,
+                            "line": 22
+                          },
+                          "message": "Error: locator.setInputFiles: Error: strict mode violation: locator('input[type=\"file\"]') resolved to 2 elements:\n    1) <input type=\"file\" name=\"file\" id=\"file-upload\"/> aka getByRole('button', { name: 'Choose File' })\n    2) <input type=\"file\" multiple=\"multiple\" class=\"dz-hidden-input\"/> aka locator('input[type=\"file\"]').nth(1)\n\nCall log:\n\u001b[2m  - waiting for locator('input[type=\"file\"]')\u001b[22m\n\n\n  20 |\n  21 |     await page.goto('/upload');\n> 22 |     await page.locator('input[type=\"file\"]').setInputFiles(tmpFile);\n     |     ^\n  23 |     await page.locator('#file-submit').click();\n  24 |     await expect(page.getByRole('heading', { name: /File Uploaded!/i })).toBeVisible();\n  25 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts:22:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-07-13T05:57:35.160Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/files-Files-—-Download-Upl-a006e--upload-a-file-successfully-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/files-Files-—-Download-Upl-a006e--upload-a-file-successfully-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/files-Files-—-Download-Upl-a006e--upload-a-file-successfully-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/files.spec.ts",
+                        "column": 5,
+                        "line": 22
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "1de639fdc719e2321283-ba515306c9b7dc45a332",
+              "file": "files.spec.ts",
+              "line": 16,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "interactions.spec.ts",
+      "file": "interactions.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Interactions",
+          "file": "interactions.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-DEMO-012: drag and drop — columns swap",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 19414,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:57:47.744Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/interactions-Interactions--901cb-rag-and-drop-—-columns-swap-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3a1181bd00640addebc-003a50307411475777c3",
+              "file": "interactions.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-013: hovers — reveal hidden caption on hover",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14263,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:58:07.378Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/interactions-Interactions--e1c1e-eal-hidden-caption-on-hover-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3a1181bd00640addebc-4fa6702962bbbd089add",
+              "file": "interactions.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-035: add/remove elements — add then remove element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6710,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:58:21.685Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/interactions-Interactions--e6877-s-—-add-then-remove-element-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3a1181bd00640addebc-8043ce17be64e436d50d",
+              "file": "interactions.spec.ts",
+              "line": 30,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-036: multiple windows — opens new window",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12090,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:58:28.435Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/interactions-Interactions--0cb4c--windows-—-opens-new-window-chromium/test-finished-2.png"
+                        },
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/interactions-Interactions--0cb4c--windows-—-opens-new-window-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3a1181bd00640addebc-45bb1550c401e6c4ac85",
+              "file": "interactions.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-037: exit intent — modal appears on mouse leave",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 15652,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.modal')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.modal')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"modal\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.modal')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.modal')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"modal\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/interactions.spec.ts:57:42",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/interactions.spec.ts",
+                          "column": 42,
+                          "line": 57
+                        },
+                        "snippet": "  55 |       document.dispatchEvent(e);\n  56 |     });\n> 57 |     await expect(page.locator('.modal')).toBeVisible({ timeout: 5000 });\n     |                                          ^\n  58 |   });\n  59 | });\n  60 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/interactions.spec.ts",
+                            "column": 42,
+                            "line": 57
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.modal')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.modal')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"modal\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n  55 |       document.dispatchEvent(e);\n  56 |     });\n> 57 |     await expect(page.locator('.modal')).toBeVisible({ timeout: 5000 });\n     |                                          ^\n  58 |   });\n  59 | });\n  60 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/interactions.spec.ts:57:42"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:58:40.563Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/interactions-Interactions--d8ce0-odal-appears-on-mouse-leave-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/interactions-Interactions--d8ce0-odal-appears-on-mouse-leave-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/interactions-Interactions--d8ce0-odal-appears-on-mouse-leave-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/interactions.spec.ts",
+                        "column": 42,
+                        "line": 57
+                      }
+                    },
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 17178,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.modal')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.modal')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"modal\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.modal')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.modal')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"modal\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/interactions.spec.ts:57:42",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/interactions.spec.ts",
+                          "column": 42,
+                          "line": 57
+                        },
+                        "snippet": "  55 |       document.dispatchEvent(e);\n  56 |     });\n> 57 |     await expect(page.locator('.modal')).toBeVisible({ timeout: 5000 });\n     |                                          ^\n  58 |   });\n  59 | });\n  60 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/interactions.spec.ts",
+                            "column": 42,
+                            "line": 57
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.modal')\nExpected: visible\nReceived: hidden\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('.modal')\u001b[22m\n\u001b[2m    14 × locator resolved to <div class=\"modal\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"hidden\"\u001b[22m\n\n\n  55 |       document.dispatchEvent(e);\n  56 |     });\n> 57 |     await expect(page.locator('.modal')).toBeVisible({ timeout: 5000 });\n     |                                          ^\n  58 |   });\n  59 | });\n  60 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/interactions.spec.ts:57:42"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-07-13T05:58:57.838Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/interactions-Interactions--d8ce0-odal-appears-on-mouse-leave-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/interactions-Interactions--d8ce0-odal-appears-on-mouse-leave-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/interactions-Interactions--d8ce0-odal-appears-on-mouse-leave-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/interactions.spec.ts",
+                        "column": 42,
+                        "line": 57
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e3a1181bd00640addebc-4467760a6bcc239800e3",
+              "file": "interactions.spec.ts",
+              "line": 50,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "navigation.spec.ts",
+      "file": "navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Navigation & Misc",
+          "file": "navigation.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-DEMO-025: broken images — page loads without HTTP errors",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9651,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:59:16.881Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-a7111-e-loads-without-HTTP-errors-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-62a9b47baa6e888d132f",
+              "file": "navigation.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-026: status codes — 200",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12531,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:59:26.756Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-TC-DEMO-026-status-codes-—-200-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-df04f8e62bac6a88bb99",
+              "file": "navigation.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-027: status codes — 301",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8928,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:59:39.330Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-TC-DEMO-027-status-codes-—-301-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-33281f48bae0e6ac94a2",
+              "file": "navigation.spec.ts",
+              "line": 19,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-028: status codes — 404",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11343,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:59:48.293Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-TC-DEMO-028-status-codes-—-404-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-1348d3bed9063e93855a",
+              "file": "navigation.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-029: status codes — 500",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11141,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T05:59:59.673Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-TC-DEMO-029-status-codes-—-500-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-767208f945513e11f936",
+              "file": "navigation.spec.ts",
+              "line": 31,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-030: notification messages — flash appears on action",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12456,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T06:00:10.850Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-27a02-s-—-flash-appears-on-action-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-1eb405c1b833678fce45",
+              "file": "navigation.spec.ts",
+              "line": 37,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-031: floating menu — visible after scroll",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10221,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T06:00:23.338Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-10a68-menu-—-visible-after-scroll-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-0f9035b91f02d7bf42fd",
+              "file": "navigation.spec.ts",
+              "line": 43,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-032: forgot password — form loads and submits",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 17081,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/email_sent/\u001b[39m\nReceived string:  \u001b[31m\"https://the-internet.herokuapp.com/forgot_password\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://the-internet.herokuapp.com/forgot_password\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/email_sent/\u001b[39m\nReceived string:  \u001b[31m\"https://the-internet.herokuapp.com/forgot_password\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://the-internet.herokuapp.com/forgot_password\"\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/navigation.spec.ts:53:24",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/navigation.spec.ts",
+                          "column": 24,
+                          "line": 53
+                        },
+                        "snippet": "  51 |     await page.locator('#email').fill('test@example.com');\n  52 |     await page.locator('#form_submit').click();\n> 53 |     await expect(page).toHaveURL(/\\/email_sent/);\n     |                        ^\n  54 |   });\n  55 |\n  56 |   test('TC-DEMO-033: redirect link — follows redirect correctly', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/navigation.spec.ts",
+                            "column": 24,
+                            "line": 53
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/email_sent/\u001b[39m\nReceived string:  \u001b[31m\"https://the-internet.herokuapp.com/forgot_password\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://the-internet.herokuapp.com/forgot_password\"\u001b[22m\n\n\n  51 |     await page.locator('#email').fill('test@example.com');\n  52 |     await page.locator('#form_submit').click();\n> 53 |     await expect(page).toHaveURL(/\\/email_sent/);\n     |                        ^\n  54 |   });\n  55 |\n  56 |   test('TC-DEMO-033: redirect link — follows redirect correctly', async ({ page }) => {\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/navigation.spec.ts:53:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T06:00:33.591Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-56f3a-rd-—-form-loads-and-submits-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-56f3a-rd-—-form-loads-and-submits-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-56f3a-rd-—-form-loads-and-submits-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/navigation.spec.ts",
+                        "column": 24,
+                        "line": 53
+                      }
+                    },
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 17635,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/email_sent/\u001b[39m\nReceived string:  \u001b[31m\"https://the-internet.herokuapp.com/forgot_password\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://the-internet.herokuapp.com/forgot_password\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/email_sent/\u001b[39m\nReceived string:  \u001b[31m\"https://the-internet.herokuapp.com/forgot_password\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://the-internet.herokuapp.com/forgot_password\"\u001b[22m\n\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/navigation.spec.ts:53:24",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/navigation.spec.ts",
+                          "column": 24,
+                          "line": 53
+                        },
+                        "snippet": "  51 |     await page.locator('#email').fill('test@example.com');\n  52 |     await page.locator('#form_submit').click();\n> 53 |     await expect(page).toHaveURL(/\\/email_sent/);\n     |                        ^\n  54 |   });\n  55 |\n  56 |   test('TC-DEMO-033: redirect link — follows redirect correctly', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/navigation.spec.ts",
+                            "column": 24,
+                            "line": 53
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/email_sent/\u001b[39m\nReceived string:  \u001b[31m\"https://the-internet.herokuapp.com/forgot_password\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    14 × unexpected value \"https://the-internet.herokuapp.com/forgot_password\"\u001b[22m\n\n\n  51 |     await page.locator('#email').fill('test@example.com');\n  52 |     await page.locator('#form_submit').click();\n> 53 |     await expect(page).toHaveURL(/\\/email_sent/);\n     |                        ^\n  54 |   });\n  55 |\n  56 |   test('TC-DEMO-033: redirect link — follows redirect correctly', async ({ page }) => {\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/navigation.spec.ts:53:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-07-13T06:00:52.339Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-56f3a-rd-—-form-loads-and-submits-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-56f3a-rd-—-form-loads-and-submits-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-56f3a-rd-—-form-loads-and-submits-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/navigation.spec.ts",
+                        "column": 24,
+                        "line": 53
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-d21eb0c531fd76c386a1",
+              "file": "navigation.spec.ts",
+              "line": 49,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-033: redirect link — follows redirect correctly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11314,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T06:01:11.852Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-6dd36--follows-redirect-correctly-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-032527464199e3909d0e",
+              "file": "navigation.spec.ts",
+              "line": 56,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-034: slow resources — page eventually loads",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7615,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T06:01:23.389Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-5fb3a-ces-—-page-eventually-loads-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-dd96a10143190250c314",
+              "file": "navigation.spec.ts",
+              "line": 62,
+              "column": 7
+            },
+            {
+              "title": "TC-DEMO-039: geolocation — prompt triggered or coordinates shown",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4851,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T06:01:31.044Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/navigation-Navigation-Misc-86139-ggered-or-coordinates-shown-chromium/test-finished-1.png"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5d2868f7d23420c27cca-7fa270813a9e3315fe13",
+              "file": "navigation.spec.ts",
+              "line": 67,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "scroll.spec.ts",
+      "file": "scroll.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Scroll",
+          "file": "scroll.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-DEMO-011: infinite scroll — page loads more content on scroll",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 12934,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/scroll.spec.ts:22:38",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/scroll.spec.ts",
+                          "column": 38,
+                          "line": 22
+                        },
+                        "snippet": "  20 |     // Verify page has paragraphs\n  21 |     const paragraphs = page.locator('p');\n> 22 |     expect(await paragraphs.count()).toBeGreaterThan(0);\n     |                                      ^\n  23 |   });\n  24 | });\n  25 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/scroll.spec.ts",
+                            "column": 38,
+                            "line": 22
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\n  20 |     // Verify page has paragraphs\n  21 |     const paragraphs = page.locator('p');\n> 22 |     expect(await paragraphs.count()).toBeGreaterThan(0);\n     |                                      ^\n  23 |   });\n  24 | });\n  25 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/scroll.spec.ts:22:38"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-07-13T06:01:35.929Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/scroll-Scroll-TC-DEMO-011--61498-oads-more-content-on-scroll-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/scroll-Scroll-TC-DEMO-011--61498-oads-more-content-on-scroll-chromium/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/scroll-Scroll-TC-DEMO-011--61498-oads-more-content-on-scroll-chromium/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/scroll.spec.ts",
+                        "column": 38,
+                        "line": 22
+                      }
+                    },
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 13178,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/scroll.spec.ts:22:38",
+                        "location": {
+                          "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/scroll.spec.ts",
+                          "column": 38,
+                          "line": 22
+                        },
+                        "snippet": "  20 |     // Verify page has paragraphs\n  21 |     const paragraphs = page.locator('p');\n> 22 |     expect(await paragraphs.count()).toBeGreaterThan(0);\n     |                                      ^\n  23 |   });\n  24 | });\n  25 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/scroll.spec.ts",
+                            "column": 38,
+                            "line": 22
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m0\u001b[39m\nReceived:   \u001b[31m0\u001b[39m\n\n  20 |     // Verify page has paragraphs\n  21 |     const paragraphs = page.locator('p');\n> 22 |     expect(await paragraphs.count()).toBeGreaterThan(0);\n     |                                      ^\n  23 |   });\n  24 | });\n  25 |\n    at /home/abhi/projects/Testing_automation/projects/demo/tests/scroll.spec.ts:22:38"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-07-13T06:01:50.642Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/scroll-Scroll-TC-DEMO-011--61498-oads-more-content-on-scroll-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/scroll-Scroll-TC-DEMO-011--61498-oads-more-content-on-scroll-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/abhi/projects/Testing_automation/projects/demo/test-results/scroll-Scroll-TC-DEMO-011--61498-oads-more-content-on-scroll-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/abhi/projects/Testing_automation/projects/demo/tests/scroll.spec.ts",
+                        "column": 38,
+                        "line": 22
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8f7bc8310c9f408a5a85-fa4eebdbf67ae53b4108",
+              "file": "scroll.spec.ts",
+              "line": 6,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-07-13T05:54:12.331Z",
+    "duration": 472005,
+    "expected": 19,
+    "skipped": 0,
+    "unexpected": 8,
+    "flaky": 0
+  }
+}

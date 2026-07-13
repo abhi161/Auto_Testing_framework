@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NovoTest.ai — Playwright Agent Pipeline</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Icon sprite (inline, self-contained — no external icon fonts/CDNs) -->
+<svg style="display:none">
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.4M12 18.6V21M21 12h-2.4M5.4 12H3M18.1 5.9l-1.7 1.7M7.6 16.4l-1.7 1.7M18.1 18.1l-1.7-1.7M7.6 7.6 5.9 5.9"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.6L16 9.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
+  <symbol id="i-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-3-6-7-2z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 4 14h6l-1 7 9-11h-6l1-7z"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4L21 6l-3-3-3.3 3.3z"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></symbol>
+  <symbol id="i-bug" viewBox="0 0 24 24"><path d="M9 8V5.5a3 3 0 0 1 6 0V8"/><rect x="6" y="8" width="12" height="11" rx="5"/><path d="M6 12H2M22 12h-4M6 17l-3 2M18 17l3 2M6 8l-2-2M18 8l2-2M12 8v11"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M12 20V4M20 20v-7"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8V4z"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L19 6h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+  <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M8 11l4 4 4-4"/><path d="M5 19h14"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.8"/><path d="M4 17l4.5-4.5 3 3L15 11l5 5"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></symbol>
+</svg>
+
+  <div class="app">
+    <aside class="sidenav">
+      <div class="brand"><svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-bolt"/></svg>NovoTest<span class="accent">.ai</span></div>
+      <nav>
+        <button class="nav-item active" data-view="dashboard"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-grid"/></svg>Dashboard</button>
+        <button class="nav-item" data-view="settings"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-gear"/></svg>Settings</button>
+      </nav>
+      <div class="sidenav-footer">
+        <div class="org-badge"><span class="org-for">Application Quality Assurance for</span><img src="novartis-emblem.png" alt="Novartis" /></div>
+        <div class="theme-toggle" id="themeToggle">
+          <button data-theme-set="dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-moon"/></svg>Dark</button>
+          <button data-theme-set="light"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-sun"/></svg>Light</button>
+        </div>
+        <div class="bridge-status" id="bridgeStatus">checking bridge…</div>
+      </div>
+    </aside>
+
+    <main class="content">
+
+      <!-- Dashboard -->
+      <section id="view-dashboard" class="view">
+        <header class="view-header">
+          <div>
+            <h1>Projects</h1>
+            <p class="subtitle">Agentic QA · Mission Control</p>
+          </div>
+        </header>
+        <div class="dash-stats" id="dashStats"></div>
+        <div class="section-title"><span class="live-dot"></span>Applications</div>
+        <div class="cards" id="projectCards"></div>
+      </section>
+
+      <!-- Project Workspace -->
+      <section id="view-project" class="view" hidden>
+        <header class="view-header">
+          <button class="back-link" data-back="dashboard"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-back"/></svg>Back to Dashboard</button>
+          <div class="project-header-row">
+            <div>
+              <h1 id="projectTitle">project</h1>
+              <p class="subtitle" id="projectSubtitle">TEST_URL</p>
+            </div>
+            <button class="btn btn-primary" data-ptab-jump="newrun"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-play"/></svg>New Run</button>
+          </div>
+        </header>
+
+        <div class="subtabs" id="projectTabs">
+          <button class="subtab active" data-ptab="overview"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-chart"/></svg>Overview</button>
+          <button class="subtab" data-ptab="newrun"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-play"/></svg>New Run</button>
+          <button class="subtab" data-ptab="evidence"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-camera"/></svg>Evidence</button>
+          <button class="subtab" data-ptab="reports"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-doc"/></svg>Reports</button>
+          <button class="subtab" data-ptab="testcases"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-list"/></svg>Test Cases</button>
+          <button class="subtab" data-ptab="issues"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-bug"/></svg>Issues</button>
+          <button class="subtab" data-ptab="integrations"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-link"/></svg>Integrations</button>
+          <button class="subtab" data-ptab="history"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-clock"/></svg>History</button>
+        </div>
+
+        <!-- Overview -->
+        <div class="ptab-panel" id="ptab-overview">
+          <div class="stat-tiles" id="overviewStats"></div>
+          <h3 class="section-title">Recent Activity</h3>
+          <div id="overviewActivity" class="history-list"></div>
+        </div>
+
+        <!-- New Run -->
+        <div class="ptab-panel" id="ptab-newrun" hidden>
+          <form id="newRunForm" class="run-form">
+            <div class="col">
+              <label>Run Name / Job Identifier *
+                <input type="text" name="runName" placeholder="Job 1" required />
+              </label>
+              <label><svg class="icon-sm" style="vertical-align:-2px;margin-right:5px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-target"/></svg>Application URL to test *
+                <input type="text" name="appUrl" placeholder="e.g. https://example.com (the live app validated against the design)" />
+              </label>
+              <label>Application source code — local path (Optional, strongest source)
+                <input type="text" name="repo" placeholder="/home/you/dev/the-app  (agents read routes &amp; navigation from the code)" />
+              </label>
+
+              <div class="test-types">
+                <div class="test-types-label">What should be tested? *</div>
+                <div class="chip-grid" id="testTypeChips"></div>
+                <div class="type-inputs" id="typeInputs"></div>
+              </div>
+
+              <label>Task / Mission instructions *
+                <textarea name="prompt" rows="5" placeholder="Describe what to test, or paste requirements. For UI: the design image on the right is the source of truth — the live app is checked against it." required></textarea>
+              </label>
+            </div>
+            <div class="col">
+              <div class="design-source-head">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-image"/></svg>
+                Design source of truth
+              </div>
+              <p class="design-source-hint">Upload the screenshot / mockup of how the UI <strong>should</strong> look. The agent sees this image, derives expected test cases from it, then tests the live app against it — any difference is a defect.</p>
+              <div class="upload-box design-upload">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-image"/></svg>
+                <div><strong>Drop the design screenshot(s)</strong></div>
+                <div class="muted">PNG / JPG — this is the visual baseline</div>
+                <input type="file" id="designUpload" accept="image/*" multiple />
+              </div>
+              <div id="designPreviews" class="design-previews"></div>
+
+              <div class="upload-box doc-upload">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-upload"/></svg>
+                <div><strong>BRD / PRD documents (optional)</strong></div>
+                <div class="muted">Text content is appended to the task prompt</div>
+                <input type="file" id="docUpload" multiple />
+              </div>
+              <ul id="uploadedFiles" class="file-list"></ul>
+            </div>
+            <div class="form-actions">
+              <span class="muted">* Required fields</span>
+              <div>
+                <button type="button" class="btn btn-ghost" id="resetRunForm">Reset</button>
+                <button type="submit" class="btn btn-primary">Start Job Execution →</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Evidence (visual verification) -->
+        <div class="ptab-panel" id="ptab-evidence" hidden>
+          <div id="evidenceContent"></div>
+        </div>
+
+        <!-- Reports -->
+        <div class="ptab-panel" id="ptab-reports" hidden>
+          <div id="reportContent"></div>
+        </div>
+
+        <!-- Test Cases -->
+        <div class="ptab-panel" id="ptab-testcases" hidden>
+          <div class="table-toolbar">
+            <input type="text" id="testCaseSearch" placeholder="Search test cases…" />
+          </div>
+          <div id="testCasesTable"></div>
+        </div>
+
+        <!-- Issues -->
+        <div class="ptab-panel" id="ptab-issues" hidden>
+          <div id="issuesTable"></div>
+        </div>
+
+        <!-- Integrations -->
+        <div class="ptab-panel" id="ptab-integrations" hidden>
+          <div class="integ-intro">Connect the sources the agents need — design, API docs, and tickets. <span class="muted">Links are saved with the project. Live MCP pulls (Jira tickets → tests, Confluence → API docs, email notifications when something's missing) are on the roadmap.</span></div>
+          <div class="integ-grid" id="integGrid"></div>
+          <div class="integ-actions"><span class="muted" id="integStatus"></span><button class="btn btn-primary" id="integSave">Save integrations</button></div>
+        </div>
+
+        <!-- History -->
+        <div class="ptab-panel" id="ptab-history" hidden>
+          <div id="historyList" class="history-list"></div>
+        </div>
+      </section>
+
+      <!-- Run / pipeline + chat -->
+      <section id="view-run" class="view" hidden>
+        <header class="view-header">
+          <button class="back-link" data-back="project"><svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><use href="#i-back"/></svg>Back</button>
+          <div>
+            <h1 id="runTitle">Run: Job 1</h1>
+            <p class="subtitle" id="runSubtitle">PROJECT</p>
+          </div>
+        </header>
+        <!-- Horizontal pipeline stepper -->
+        <div class="run-stepper" id="pipeline"></div>
+
+        <!-- Design source of truth (what the agent is testing against) -->
+        <div class="run-design" id="runDesign" hidden></div>
+
+        <!-- Two-pane: Activity (left) + Artifacts (right) -->
+        <div class="run-split">
+          <div class="chat-panel">
+            <div class="pane-head">
+              <span><span class="live-dot"></span>Activity</span>
+              <button class="pane-toggle" id="expandAllTools" title="Expand/collapse all tool steps">⇕ details</button>
+            </div>
+            <div class="chat-transcript" id="chatTranscript"></div>
+            <form id="chatForm" class="chat-input-bar">
+              <input type="text" id="chatInput" placeholder="Ask a follow-up question, or use the buttons above once the stage finishes…" autocomplete="off" />
+              <button type="submit" class="send-btn"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#i-send"/></svg></button>
+            </form>
+          </div>
+          <aside class="artifacts-panel">
+            <div class="pane-head">Artifacts <span class="art-count" id="artCount"></span></div>
+            <div class="artifacts-list" id="artifactsList"></div>
+            <div class="artifacts-preview" id="artifactsPreview"><div class="art-empty">Files the agent writes this run appear here — click one to preview it.</div></div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Settings -->
+      <section id="view-settings" class="view" hidden>
+        <header class="view-header"><h1>Settings</h1></header>
+        <label class="settings-field">Bridge URL (VS Code loopback bridge)
+          <input type="text" id="bridgeUrlInput" placeholder="http://localhost:5051" />
+        </label>
+        <button class="btn btn-primary" id="saveBridgeUrl">Save</button>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- New Project modal -->
+  <div class="modal-backdrop" id="newProjectBackdrop" hidden>
+    <div class="modal">
+      <h2>New Project</h2>
+      <p class="muted">Scaffolds <code>projects/&lt;name&gt;</code> from the template and writes its <code>.env</code>.</p>
+      <form id="newProjectForm">
+        <label>Project name (slug) *
+          <input type="text" name="name" placeholder="my-app" pattern="[a-z][a-z0-9-]{1,30}" required />
+        </label>
+        <label>Application URL (TEST_URL) *
+          <input type="text" name="testUrl" placeholder="https://your-app.example.com" required />
+        </label>
+        <label class="auth-type-label">Authentication
+          <select name="authType" id="authType">
+            <option value="none">None / public</option>
+            <option value="form">Basic HTML form</option>
+            <option value="azure">Azure AD via Cognito federation</option>
+          </select>
+        </label>
+        <div id="authFields" class="auth-fields" hidden>
+          <label>Auth URL (TEST_AUTH_URL)
+            <input type="text" name="testAuthUrl" placeholder="https://your-app.example.com/login" />
+          </label>
+          <label>Identity provider prefix (Cognito)
+            <input type="text" name="identityProvider" placeholder="e.g. my-app-idp" />
+          </label>
+        </div>
+        <label>Test username
+          <input type="text" name="testUser" />
+        </label>
+        <label>Test password
+          <input type="password" name="testPass" />
+        </label>
+        <label>Figma file URL (optional)
+          <input type="text" name="figmaUrl" placeholder="https://www.figma.com/design/..." />
+        </label>
+        <div class="modal-error" id="newProjectError" hidden></div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" id="cancelNewProject">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create Project</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Human approval popout (blocks the pipeline until you approve) -->
+  <div class="modal-backdrop approval-backdrop" id="approvalBackdrop" hidden>
+    <div class="modal approval-modal">
+      <div class="approval-title">
+        <span class="approval-badge">Approval required</span>
+        <h2 id="approvalHeading">Review before continuing</h2>
+        <p class="muted" id="approvalSub">The pipeline is paused — nothing proceeds until you approve.</p>
+      </div>
+      <div class="approval-content" id="approvalContent"></div>
+      <div class="approval-feedback" id="approvalFeedback" hidden>
+        <textarea id="approvalFeedbackText" placeholder="What should change? (e.g. 'add a case for the footer links', 'the heading text should be X per the design')"></textarea>
+      </div>
+      <div class="approval-actions" id="approvalActions"></div>
+    </div>
+  </div>
+
+  <!-- Screenshot lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightboxClose">✕</button>
+    <img id="lightboxImg" alt="screenshot" />
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "steps": [
+    {
+      "screen": "Home",
+      "design": "docs/design/Screenshot_from_2026-07-13_12-14-01.png",
+      "reachedBy": "Start page — open the application URL"
+    },
+    {
+      "screen": "Screen 2",
+      "design": "docs/design/Screenshot_from_2026-07-13_12-14-19.png",
+      "reachedBy": "click \"learn more\" link"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "playwright-agent-ui",
+  "displayName": "Playwright Agent UI",
+  "description": "Webview UI that drives the .github/agents Playwright test-automation pipeline via VS Code's Copilot Chat model API (vscode.lm).",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "playwrightAgent.openPanel",
+        "title": "Playwright Agent: Open Pipeline UI"
+      },
+      {
+        "command": "playwrightAgent.bridgeStatus",
+        "title": "Playwright Agent: Check Bridge Status"
+      }
+    ],
+    "configuration": {
+      "title": "Playwright Agent",
+      "properties": {
+        "playwrightAgent.bridgePort": {
+          "type": "number",
+          "default": 5051,
+          "description": "Loopback port the standalone web UI connects to (http://localhost:<port>)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "esbuild src/extension.ts --bundle --platform=node --external:vscode --outfile=dist/extension.js --format=cjs && mkdir -p dist/webview && cp src/webview/index.html dist/webview/index.html",
+    "watch": "npm run build -- --watch",
+    "compile": "tsc --noEmit -p ."
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.95.0",
+    "@types/node": "^20.11.0",
+    "esbuild": "^0.23.0",
+    "typescript": "^5.6.0"
+  }
+}

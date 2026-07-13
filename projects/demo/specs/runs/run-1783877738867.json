@@ -1,0 +1,10 @@
+{
+  "id": "run-1783877738867",
+  "project": "demo",
+  "stage": "context-analyst",
+  "prompt": "Requested test types: Functional / E2E\nTask: Briefly confirm the login selectors for this project. One short paragraph, no file writes.",
+  "startedAt": 1783877738867,
+  "status": "done",
+  "output": "I'll read the relevant files to confirm the login selectors for the `demo` project.  For the **demo** project, the login page at `https://the-internet.herokuapp.com/login` uses a plain HTML form — **not** Azure AD. The verified selectors are: `#username` for the username field, `#password` for the password field, and `button[type=\"submit\"]` for the submit button. On success, the selector `.flash.success` confirms the redirect to `/secure`; on failure, `.flash.error` surfaces the invalid-credentials message. The `AuthHelper` class (Azure AD scaffold) is present but not used here — tests interact with the form directly.",
+  "finishedAt": 1783877747130
+}
