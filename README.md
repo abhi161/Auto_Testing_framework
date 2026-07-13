@@ -131,6 +131,19 @@ cp .env.example .env   # default TEST_PROJECT=ftc — fine to leave as-is
 
 The **web UI needs no install** — it is a zero-dependency static server.
 
+> **Windows note:** all `npm`/`npx`/`node` steps are identical. Only shell-builtin commands differ —
+> use `copy .env.example .env` (Command Prompt) or `Copy-Item .env.example .env` (PowerShell) instead
+> of `cp`. Run the commands in **PowerShell** or **Command Prompt** (not Git Bash, so `npx playwright`
+> resolves correctly).
+>
+> **No admin rights required.** Everything the platform does at runtime is user-scoped: the bridge and
+> web UI bind to loopback high ports (no admin, no firewall prompt), `npm install` and
+> `npx playwright install` write only to your user profile, and the local-source link uses a directory
+> *junction* (not a symlink, so no Developer Mode/admin). The only admin-sensitive step is *installing*
+> the tools — both have no-admin options: install **VS Code** with the **User Installer**
+> (`VSCodeUserSetup`, installs to `%LocalAppData%`), and **Node.js** via the ZIP archive, `fnm`/
+> `nvm-windows`, or `winget install OpenJS.NodeJS` if it isn't already present.
+
 ---
 
 ## Running it (step by step)
@@ -143,7 +156,8 @@ You need **two things running**: the bridge (inside VS Code) and the web UI (a s
 3. Press **F5** (or Run → *Run Playwright Agent Extension*).
    - A second VS Code window (**Extension Development Host**) opens.
    - On startup the extension auto-starts the bridge on **`127.0.0.1:5051`**.
-   - Verify: `curl http://127.0.0.1:5051/health` → `{"ok":true,"model":"…"}`.
+   - Verify: `curl http://127.0.0.1:5051/health` → `{"ok":true,"model":"…"}`. (On Windows use
+     `curl.exe http://127.0.0.1:5051/health`, or just open the URL in a browser.)
 
 ### 2. Start the web UI
 ```bash

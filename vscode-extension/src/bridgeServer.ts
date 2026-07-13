@@ -73,7 +73,9 @@ function ensureCodebaseLink(project: string, codePath: unknown, log: (e: LogEven
     } catch {
       /* nothing there yet */
     }
-    fs.symlinkSync(resolved, link, 'dir');
+    // On Windows a 'dir' symlink needs Developer Mode or admin; a 'junction' needs neither and works
+    // for absolute directory targets (which `resolved` is). Use junction on win32, dir elsewhere.
+    fs.symlinkSync(resolved, link, process.platform === 'win32' ? 'junction' : 'dir');
     log({ type: 'text', text: `\n[codebase] linked ${target} → projects/${project}/codebase — app source is available to the agents.\n` });
   } catch (e: any) {
     log({ type: 'text', text: `\n[codebase] could not link source (${e.message}) — falling back to design/UI.\n` });
