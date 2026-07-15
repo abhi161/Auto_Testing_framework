@@ -1,0 +1,24 @@
+{
+  "id": "run-1784091905476",
+  "jobId": "job-1784091885101",
+  "runName": "job1",
+  "project": "demo",
+  "stage": "test-executor-analyst",
+  "stageLabel": "Test Executor & Analyser",
+  "prompt": "Requested test types: Functional / E2E\nApplication URL to test (validate the live app against the design): https://example.com/\nUser flow (design source of truth — 2 screens). Each screen has a design image (attached, model can see it); the LIVE app is validated AGAINST each screen's design as you navigate. NONE of these images is the live app.\n  1. Screen \"Home\" — reached by: Start page — open the application URL. Design: docs/design/Screenshot_from_2026-07-13_12-14-01.png\n  2. Screen \"Screen 2\" — reached by: click learn more. Design: docs/design/Screenshot_from_2026-04-30_10-09-28.png\nGenerate ONE Playwright flow that opens the start page, validates it against screen 1, then performs each navigation action and validates the resulting page against that screen's design. Deviations are defects. Do not pre-declare deviations before running.\nTask: test everything",
+  "startedAt": 1784091905476,
+  "status": "error",
+  "output": "\n[attached design source: Screenshot_from_2026-07-13_12-14-01.png — the model can see this]\n\n[attached design source: Screenshot_from_2026-04-30_10-09-28.png — the model can see this]\n",
+  "events": [
+    {
+      "type": "text",
+      "text": "\n[attached design source: Screenshot_from_2026-07-13_12-14-01.png — the model can see this]\n\n[attached design source: Screenshot_from_2026-04-30_10-09-28.png — the model can see this]\n"
+    }
+  ],
+  "designImages": [
+    "Screenshot_from_2026-07-13_12-14-01.png",
+    "Screenshot_from_2026-04-30_10-09-28.png"
+  ],
+  "error": "You've reached your monthly credit limit. Please enable additional paid credits, upgrade to Copilot Pro+, or wait until your credits reset on August 1, 2026 at 5:30 AM.",
+  "finishedAt": 1784091909068
+}
