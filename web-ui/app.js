@@ -650,7 +650,8 @@ async function continueRun(project, stageId, prompt) {
   const idx = Math.max(0, state.stages.findIndex((s) => s.id === stageId));
   const stageStatus = {};
   state.stages.forEach((s, i) => { if (i < idx) stageStatus[s.id] = 'done'; }); // prior stages shown complete
-  state.activeRun = { project, runName: 'continue', prompt, designImages, stageIndex: idx, stageStatus, stageOutputs: {}, lastStagePrompt: null, artifacts: [] };
+  state.activeRun = { project, runName: 'continue', jobId: `job-${Date.now()}`, prompt, designImages, stageIndex: idx, stageStatus, stageOutputs: {}, lastStagePrompt: null, artifacts: [] };
+  document.getElementById('chatForm').hidden = false;
   document.getElementById('runTitle').textContent = `Continue: ${project}`;
   document.getElementById('runSubtitle').textContent = `PROJECT: ${project.toUpperCase()}`;
   renderPipeline();
@@ -1283,6 +1284,7 @@ function startRun(project, runName, prompt, designImageNames = [], codePath = ''
   state.activeRun = {
     project,
     runName,
+    jobId: `job-${Date.now()}`, // groups this run's stages into one replayable job in History
     prompt,
     codePath, // local app-source path; re-sent each stage so the bridge keeps codebase/ linked
     designImages: designImageNames, // filenames in docs/design/, sent to every stage as vision
@@ -1294,6 +1296,7 @@ function startRun(project, runName, prompt, designImageNames = [], codePath = ''
   };
   document.getElementById('runTitle').textContent = `Run: ${runName}`;
   document.getElementById('runSubtitle').textContent = `PROJECT: ${project.toUpperCase()}`;
+  document.getElementById('chatForm').hidden = false; // live run — show the follow-up input (replay hides it)
   renderPipeline();
   renderRunDesign(state.activeRun);
   document.getElementById('chatTranscript').innerHTML = '';
@@ -1560,6 +1563,8 @@ async function streamStageRequest(run, stage, userPrompt, segmentsEl) {
       prompt: userPrompt,
       designImages: run.designImages || [],
       codePath: run.codePath || '',
+      jobId: run.jobId || '',
+      runName: run.runName || '',
     }),
   });
   if (!res.ok || !res.body) {
@@ -1883,6 +1888,35 @@ document.getElementById('chatForm').addEventListener('submit', (e) => {
 });
 
 // ---------- history (project-scoped) ----------
+// Group the flat stage records into JOBS (one pipeline run = one job) so History lists replayable
+// jobs, not loose stage invocations. Legacy records with no jobId each become their own job.
+function groupRunsIntoJobs(runs) {
+  const byJob = new Map();
+  runs.forEach((r) => {
+    const key = r.jobId || r.id;
+    if (!byJob.has(key)) byJob.set(key, []);
+    byJob.get(key).push(r);
+  });
+  const jobs = [...byJob.values()].map((stages) => {
+    stages.sort((a, b) => a.startedAt - b.startedAt); // stages in run order
+    const status = stages.some((s) => s.status === 'error')
+      ? 'error'
+      : stages.some((s) => s.status === 'running')
+      ? 'running'
+      : 'done';
+    return {
+      jobId: stages[0].jobId || stages[0].id,
+      runName: stages[0].runName || stages[0].stageLabel || stages[0].stage,
+      startedAt: stages[0].startedAt,
+      finishedAt: stages[stages.length - 1].finishedAt || stages[stages.length - 1].startedAt,
+      status,
+      stages,
+    };
+  });
+  jobs.sort((a, b) => b.startedAt - a.startedAt); // newest job first
+  return jobs;
+}
+
 async function loadHistory(project, targetElId) {
   const el = document.getElementById(targetElId);
   if (!project) {
@@ -1894,19 +1928,87 @@ async function loadHistory(project, targetElId) {
     const res = await fetch(`${bridgeUrl()}/projects/${encodeURIComponent(project)}/history`);
     const data = await res.json();
     el.innerHTML = '';
-    const runs = (data.runs || []).sort((a, b) => b.startedAt - a.startedAt);
-    runs.forEach((r) => {
-      const row = document.createElement('div');
-      row.className = 'history-row';
-      row.innerHTML = `
-        <span>${r.stage} — ${new Date(r.startedAt).toLocaleString()}</span>
-        <span class="${badgeClass(r.status)}">${r.status}</span>`;
-      el.appendChild(row);
+    const jobs = groupRunsIntoJobs(data.runs || []);
+    if (!jobs.length) {
+      el.innerHTML = '<p class="muted">No runs yet for this project.</p>';
+      return;
+    }
+    jobs.forEach((job) => {
+      const stageBadges = job.stages
+        .map((s) => `<span class="job-stage ${badgeClass(s.status)}" title="${s.status}">${s.stageLabel || s.stage}</span>`)
+        .join('');
+      const card = document.createElement('div');
+      card.className = 'history-job';
+      card.innerHTML = `
+        <div class="hj-top">
+          <span class="hj-name">${job.runName}</span>
+          <span class="${badgeClass(job.status)}">${job.status}</span>
+        </div>
+        <div class="hj-meta">${new Date(job.startedAt).toLocaleString()} · ${job.stages.length} stage${job.stages.length === 1 ? '' : 's'}</div>
+        <div class="hj-stages">${stageBadges}</div>
+        <div class="hj-open">Open &amp; replay end-to-end →</div>`;
+      card.addEventListener('click', () => openJobReplay(project, job));
+      el.appendChild(card);
     });
-    if (!runs.length) el.innerHTML = '<p class="muted">No runs yet for this project.</p>';
   } catch (e) {
     el.innerHTML = `<p class="muted">Could not load history: ${e.message}</p>`;
   }
+}
+
+// Re-open a finished job and replay it end-to-end in the run view — same stages, same order, same
+// activity + tool steps + artifacts + design source that were seen live. Read-only (no input bar).
+function openJobReplay(project, job) {
+  const stages = job.stages;
+  const withDesign = stages.find((s) => (s.designImages || []).length) || {};
+  const stageStatus = {};
+  stages.forEach((s) => (stageStatus[s.stage] = s.status));
+  const lastStageId = stages[stages.length - 1].stage;
+  const stageIndex = Math.max(0, state.stages.findIndex((s) => s.id === lastStageId));
+
+  state.activeRun = {
+    project,
+    runName: job.runName,
+    jobId: job.jobId,
+    designImages: withDesign.designImages || [],
+    stageIndex,
+    stageStatus,
+    stageOutputs: {},
+    artifacts: [],
+    replay: true,
+  };
+
+  document.getElementById('runTitle').textContent = `Replay: ${job.runName}`;
+  document.getElementById('runSubtitle').textContent = `PROJECT: ${project.toUpperCase()} · ${new Date(job.startedAt).toLocaleString()}`;
+  document.getElementById('chatForm').hidden = true; // read-only replay
+  renderPipeline();
+  renderRunDesign(state.activeRun);
+  const transcript = document.getElementById('chatTranscript');
+  transcript.innerHTML = '';
+  renderArtifacts();
+  showView('run');
+
+  stages.forEach((s) => {
+    const time = new Date(s.startedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const segmentsEl = startAgentTurn(s.stageLabel || s.stage, time + (s.status === 'error' ? ' · failed' : ''));
+    const events = s.events || [];
+    if (!events.length) {
+      const note = document.createElement('div');
+      note.className = 'seg seg-text';
+      note.textContent = '(no recorded activity for this stage — it ran before replay was added)';
+      segmentsEl.appendChild(note);
+    } else {
+      events.forEach((evt) => appendSegment(segmentsEl, evt));
+      finalizeSegments(segmentsEl);
+    }
+    if (s.status === 'error' && s.error) {
+      const err = document.createElement('div');
+      err.className = 'seg seg-text';
+      err.style.color = 'var(--danger)';
+      err.textContent = `Stage error: ${s.error}`;
+      segmentsEl.appendChild(err);
+    }
+  });
+  transcript.scrollTop = 0; // start at the top for reading a replay
 }
 
 // ---------- settings ----------

@@ -1,0 +1,11 @@
+{
+  "id": "run-1784088931661",
+  "project": "demo",
+  "stage": "context-analyst",
+  "prompt": "Requested test types: Functional / E2E, UI Testing\nApplication URL to test (validate the live app against the design): https://example.com/\nUser flow (design source of truth — 2 screens). Each screen has a design image (attached, model can see it); the LIVE app is validated AGAINST each screen's design as you navigate. NONE of these images is the live app.\n  1. Screen \"Screen 2\" — reached by: Start page — open the application URL. Design: docs/design/Screenshot_from_2026-07-13_12-14-01.png\n  2. Screen \"Home\" — reached by: click on Learn more. Design: docs/design/Screenshot_from_2026-07-13_12-14-19.png\nGenerate ONE Playwright flow that opens the start page, validates it against screen 1, then performs each navigation action and validates the resulting page against that screen's design. Deviations are defects. Do not pre-declare deviations before running.\nTask: test everything",
+  "startedAt": 1784088931661,
+  "status": "error",
+  "output": "\n[attached design source: Screenshot_from_2026-07-13_12-14-01.png — the model can see this]\n\n[attached design source: Screenshot_from_2026-07-13_12-14-19.png — the model can see this]\n\n[stream hiccup — resuming this step in 1s (retry 1/6, no work lost)…]\n\n[stream hiccup — resuming this step in 2s (retry 2/6, no work lost)…]\n\n[stream hiccup — resuming this step in 4s (retry 3/6, no work lost)…]\n\n[stream hiccup — resuming this step in 8s (retry 4/6, no work lost)…]\n",
+  "error": "network request aborted",
+  "finishedAt": 1784089057250
+}

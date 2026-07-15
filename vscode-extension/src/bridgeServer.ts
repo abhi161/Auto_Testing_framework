@@ -645,7 +645,7 @@ export function stopBridgeServer(): Promise<void> {
 }
 
 async function handleChat(body: any, res: http.ServerResponse): Promise<void> {
-  const { project, stage, prompt, designImages, codePath } = body;
+  const { project, stage, prompt, designImages, codePath, jobId, runName } = body;
   if (!project || !prompt) {
     writeJson(res, 400, { error: 'project and prompt are required' });
     return;
@@ -667,18 +667,45 @@ async function handleChat(body: any, res: http.ServerResponse): Promise<void> {
   };
 
   const id = `run-${Date.now()}`;
-  const run: any = { id, project, stage, prompt, startedAt: Date.now(), status: 'running', output: '' };
+  const stageLabel = PIPELINE_STAGES.find((s) => s.id === stage)?.label || stage;
+  // The full ordered activity stream is persisted on the run record so a finished job can be
+  // re-opened and replayed end-to-end, exactly as it streamed live (same order, same tool steps,
+  // same artifacts). `jobId` groups the stages of one pipeline run into a single replayable job.
+  const run: any = {
+    id,
+    jobId: jobId || id,
+    runName: runName || stageLabel,
+    project,
+    stage,
+    stageLabel,
+    prompt,
+    startedAt: Date.now(),
+    status: 'running',
+    output: '',
+    events: [] as LogEvent[],
+  };
 
   _cts?.cancel();
   _cts = new vscode.CancellationTokenSource();
+  const EVENT_CAP = 4000; // max stored events per stage — bounds the replay record
+  const SEG_CAP = 40000; // max chars kept in a single coalesced text segment
   const log = (evt: LogEvent) => {
     run.output += evt.text;
+    // Persist a compact copy for replay. Coalesce consecutive streamed text tokens into one
+    // segment (mirrors how the UI merges them) so the events array stays small.
+    const lastStored = run.events[run.events.length - 1];
+    if (evt.type === 'text' && lastStored && lastStored.type === 'text' && lastStored.text.length < SEG_CAP) {
+      lastStored.text += evt.text;
+    } else if (run.events.length < EVENT_CAP) {
+      run.events.push({ ...evt });
+    }
     send('log', evt);
   };
 
   // The design source of truth: explicit filenames from the request, or every image already in
   // docs/design/ if the caller didn't specify (so it's always in context for UI runs).
   const imageNames = Array.isArray(designImages) && designImages.length ? designImages : listDesignImages(project);
+  run.designImages = imageNames;
   const images = loadDesignImages(project, imageNames);
 
   try {
